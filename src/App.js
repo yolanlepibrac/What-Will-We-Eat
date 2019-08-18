@@ -7,6 +7,8 @@ import styled, { keyframes } from 'styled-components';
 import './App.css';
 import './fonts.css';
 
+//import {isMobile} from 'react-device-detect';
+
 const Pulse = styled.div`animation: 1s ${keyframes`${pulse}`} infinite`;
 const BounceInDown = styled.div`animation: 1s ${keyframes`${zoomIn}`}`;
 const RubberBand = styled.div`animation: 1s ${keyframes`${rubberBand}`}`;
@@ -100,19 +102,19 @@ var allPlacesToEat = [
   {
     "name" : "MC Do",
     "image" : 'http://idata.over-blog.com/5/13/32/01/images-copie-40.jpg',
-    "text" : "Bande de gros porcs...",
+    "text" : "C'est pas bien...",
     "id" : 0,
   },
   {
     "name" : "Boulangerie",
     "image" : 'http://img.over-blog-kiwi.com/0/70/55/90/20150811/ob_525db3_sandwich-poulet-curry-oeuf-dur-1.JPG',
-    "text" : "T'ira au restau quand tu sera ingé batch fdp",
+    "text" : "Ca fait toujours plaisir un ptit sandwich !",
     "id" : 1,
   },
   {
     "name" : "Bobbun",
     "image" : 'https://media.newyorker.com/photos/5aeb586479f6430aaa0f9d19/master/w_727,c_limit/Wright-Kim-Jong-Un-Profile.jpg',
-    "text" : "Méfiez vous quand même des chintocs",
+    "text" : "Prends les nems crevettes pas les poulet !",
     "id" : 2,
   },
   {
@@ -124,7 +126,7 @@ var allPlacesToEat = [
   {
     "name" : "Burger King",
     "image" : 'https://www.burgerking.be/assets/images/sharing/BurgerKing-sharing.jpg',
-    "text" : "C'est sale",
+    "text" : "C'est pas propre",
     "id" : 4,
   },
   {
@@ -136,19 +138,19 @@ var allPlacesToEat = [
   {
     "name" : "Kebab",
     "image" : 'https://i1.wp.com/www.lebonpote.net/wp-content/uploads/2018/12/menukebab.png?fit=300%2C261&ssl=1',
-    "text" : "On y va pas assez souvent",
+    "text" : "N'y va pas trop souvent quand même !",
     "id" : 6,
   },
   {
     "name" : "Restau",
     "image" : 'https://www.barazzi.fr/c/69-barazzi_menu/Tables-Restaurant.jpg',
-    "text" : "On est " + day + " quand même",
+    "text" : "On est " + day + ", c'est la tradition",
     "id" : 7,
   },
   {
     "name" : "Jap",
     "image" : 'https://www.kyosushi.com/wp-content/uploads/2018/05/IMG_4594.jpg',
-    "text" : "T'aime bien les gros sushis !",
+    "text" : "Sushis or not sushis ?",
     "id" : 8,
   },
   {
@@ -281,7 +283,7 @@ class App extends Component {
               What Will We Eat ?
             </div>
         </header>
-        <div  style={{width :"100vw", height:"100vh", overflow:"hidden", backgroundSize:"cover", backgroundImage:"url('https://previews.123rf.com/images/studiostoks/studiostoks1609/studiostoks160900019/62072678-femme-retro-avec-le-petit-g%C3%A2teau-pop-dessin-art-comique-illustration-di%C3%A8te-et-d%C3%A9licieux-muffins-saveurs-et.jpg')"}}>
+        <div  style={{width :"100vw", maxWidth:500,  height:"100vh", overflow:"hidden", backgroundSize:"cover", backgroundImage:"url("+require("./assets/gateau.jpg")+")"}}>
         {this.state.displayButtonSearch ?
           <div>
             {/*
@@ -335,7 +337,9 @@ class App extends Component {
             <div style={{height:60, fontSize:40, color:"white", backgroundColor:"black"}}>{this.state.placeToEatChoosen.name}</div>
               <div style={{ width : "100%", position:"absolute", height:'calc(100vh - 95px)', top:95, left:0}}>
                 <BounceInDown>
-                  <div style={{ width : "100%", position:"absolute",  height:'calc(100vh - 95px)', backgroundColor:"rgba(143, 211, 255,1)", backgroundImage:"url("+this.state.placeToEatChoosen.image+")", backgroundSize: "cover"}}>
+                  <div  style={{ width : "100%", height:'calc(100vh - 95px)', display:"flex", flexDirection:"row", justifyContent:"center"}}>
+                    <div style={{ width : "100%", maxWidth:500, height:'calc(100vh - 95px)', backgroundColor:"rgba(143, 211, 255,1)", backgroundImage:"url("+this.state.placeToEatChoosen.image+")", backgroundSize: "cover"}}>
+                    </div>
                   </div>
                 </BounceInDown>
               </div>
